@@ -20,4 +20,5 @@ import pandas as pd
 
 df = pd.DataFrame(people)
 df
-filt = (df['last'] == 'Doe')
+filt = (df['last'] == 'Schafer') & (df['first'] == 'John')
+df.loc[filt, 'email']
