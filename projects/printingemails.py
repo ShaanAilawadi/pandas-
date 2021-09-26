@@ -1,7 +1,6 @@
 import pandas as pd
+df = pd.read_csv('email.csv')
+def row(emails):
 
-
-def email_(file_name):
-    df = pd.read_csv('email.csv')
-    for index, row in 'email.csv'.iterrows():
-        print(['Company name; ', df])
+    for index, row in df.iterrows():
+        print(row['email'])
