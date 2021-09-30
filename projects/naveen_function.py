@@ -8,3 +8,11 @@ na = 'Naveen Ailawadi'
 
 # use the function
 print_10_names(na)
+
+y = mx + b
+
+y = 5x + 3
+
+x = 5
+
+y = 28
