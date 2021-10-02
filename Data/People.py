@@ -1,15 +1,3 @@
-person = {
-    "first": "Corey",
-    "last": "Schafer",
-    "email": "CoreyMSchafer@gmail.com"
-}
-
-people = {
-    "first": "Corey",
-    "last": "Schafer",
-    "email": "CoreyMSchafer@gmail.com"
-}
-
 people = {
     "first": ["Corey", 'Jane', 'John'],
     "last": ["Schafer", 'Doe', 'Doe'],
@@ -20,7 +8,52 @@ import pandas as pd
 
 df = pd.DataFrame(people)
 df
-df.columns = ['first_name', 'last_name', 'email']
+df['first'] + ' ' + df['last']
+df['full_name'] = df['first'] + ' ' + df['last']
+df
+df['full_name'].str.split(' ', exapand=True)
+df[['first', 'last']] = df['full_name'].str.split(' ', expand=True)
+df
+df.append({'first': 'Tony'}, ignore_index=True)
+people = {
+    "first": ['Tony,', 'Steve'],
+    "last": ['Stark', 'Rodgers'],
+    "email": ['IronMan@avenge.com', 'Cap@avenge.com']
+}
+df2 = pd.DataFrame(people)
+df.append(df2, ignore_index=True)
+df = df.append(df2, ignore_index=True)
+df.drop(index=4)
+filt = df['last'] == 'Doe'
+df.drop(index=df[filt].index)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''df.columns = ['first_name', 'last_name', 'email']
 df.columns = [x.lower() for x in df.columns]
 df.rename(columns={'first_name': 'first', 'last_name': 'last'}, inplace=True)
 df.loc[2] = ['John', 'Smith', 'JohnDoe@email.com']
@@ -46,3 +79,4 @@ df.applymap(len)
 df.applymap(str.lower)
 df['first'].map({'Corey': 'Chris', 'Jane': 'Mary'})
 df['first'] = df['first'].replace({'Corey': 'Chris', 'Jane': 'Mary'})
+'''
